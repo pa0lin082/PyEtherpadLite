@@ -7,7 +7,7 @@ setup(
     version='0.1',
     description='Python bindings for Etherpad-Lite\'s HTTP API. (https://github.com/Pita/etherpad-lite)',
     author='devjones',
-    url='https://github.com/devjones/PyEtherpadLite',
+    url='https://github.com/pa0lin082/PyEtherpadLite',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
