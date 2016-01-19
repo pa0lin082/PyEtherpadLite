@@ -10,5 +10,6 @@ setup(
     url='https://github.com/devjones/PyEtherpadLite',
     packages=find_packages('src'),
     package_dir={'': 'src'},
+    include_package_data=True,
 )
 

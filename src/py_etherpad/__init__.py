@@ -15,7 +15,7 @@ except ImportError:
 
 class EtherpadLiteClient:
     """Client to talk to EtherpadLite API."""
-    API_VERSION = 1  # TODO probably 1.1 sometime soon
+    API_VERSION = '1'  # TODO probably 1.1 sometime soon
 
     CODE_OK = 0
     CODE_INVALID_PARAMETERS = 1
@@ -27,16 +27,19 @@ class EtherpadLiteClient:
     apiKey = ""
     baseUrl = "http://localhost:9001/api"
 
-    def __init__(self, apiKey=None, baseUrl=None):
+    def __init__(self, apiKey=None, baseUrl=None, apiVersion=None):
         if apiKey:
             self.apiKey = apiKey
+
+        if apiVersion:
+            self.API_VERSION = apiVersion
 
         if baseUrl:
             self.baseUrl = baseUrl
 
     def call(self, function, arguments=None):
         """Create a dictionary of all parameters"""
-        url = '%s/%d/%s' % (self.baseUrl, self.API_VERSION, function)
+        url = '%s/%s/%s' % (self.baseUrl, self.API_VERSION, function)
 
         params = arguments or {}
         params.update({'apikey': self.apiKey})
